@@ -9,7 +9,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
-import { initSelect2 } from '../plugins/init_select2';
+import { initSelect2 } from './plugins/init_select2';
 
 document.addEventListener("turbolinks:load", function () {
   initSelect2();
