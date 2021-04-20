@@ -4,7 +4,7 @@
       <div class="bg-white rounded p-3 shadow">
         <h3>Create a new list</h3>
         <%= simple_form_for @list do |f| %>
-          <%= f.input :name, placeholder: 'Drama' %>
+          <%= f.input :name, label: 'list name please', placeholder: 'drama' %>
           <%= f.submit class: 'btn btn-success' %>
         <% end %>
       </div>
