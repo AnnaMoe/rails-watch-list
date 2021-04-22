@@ -3,6 +3,8 @@ class ListsController < ApplicationController
 
   def index
     @lists = List.all
+    @bookmark = Bookmark.new
+    @list = List.new
   end
 
   def show; end
@@ -13,8 +15,8 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-      if @list.save
-      redirect_to @list, notice: 'Our list was successfully created.'
+    if @list.save
+      redirect_to list_path(@list)
     else
       render :new
     end

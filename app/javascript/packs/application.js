@@ -14,3 +14,11 @@ import { initSelect2 } from './plugins/init_select2';
 document.addEventListener("turbolinks:load", function () {
   initSelect2();
 });
+
+import { loadDynamicBannerText } from '../components/banner';
+
+document.addEventListener('turbolinks:load', () => {
+  // Call your JS functions here
+  // [...]
+  loadDynamicBannerText();
+});
