@@ -1,0 +1,11 @@
+
+    <div class="col-12">
+      <div class="bg-white rounded p-3">
+        <h4>Add your review</h4>
+        <%= simple_form_for [@list, @review] do |f| %>
+          <%= f.input :comment, placeholder: 'Add your review here...' %>
+          <%= f.input :rating, as: :select, collection: (1..5), prompt: "What's your rating", required: true %>
+          <%= f.submit class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>

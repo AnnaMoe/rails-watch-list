@@ -7,7 +7,9 @@ class ListsController < ApplicationController
     @list = List.new
   end
 
-  def show; end
+  def show
+    @review = Review.new(list: @list)
+  end
 
   def new
     @list = List.new

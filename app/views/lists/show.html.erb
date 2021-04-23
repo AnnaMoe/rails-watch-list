@@ -1,5 +1,5 @@
 <div class="position-relative">
-    <% if @list.photo.attached? %>
+  <% if @list.photo.attached? %>
     <div class="card-category card-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key %>')">
       <h1><%= @list.name %></h1>
     </div>
@@ -38,5 +38,28 @@
         <% end %>
       </div>
     <% end %>
+  </div>
+  <hr class="my-5">
+  <div class="row">
+    <div class="col-12 col-sm-6">
+      <h4>Reviews</h4>
+      <% if @list.reviews.empty? %>
+        <small><em class="text-muted">Be the first one to review this list</em></small>
+      <% else %>
+        <% @list.reviews.each do |review| %>
+        <div>
+          <span>rating: <%= review.rating do %> </span>
+            <%# <i class="fas fa-star star-yellow"></i> %>
+          <% end %>
+          <small><em class="text-muted"><%= distance_of_time_in_words_to_now(review.created_at) %> ago</em></small>
+          <p class="mb-0"><%= review.comment %></p>
+        </div>
+        <hr>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="col-12 col-sm-6">
+      <%= render "review" %>
+    </div>
   </div>
 </div>
